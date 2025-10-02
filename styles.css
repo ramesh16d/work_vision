@@ -1,0 +1,89 @@
+/* Mobile-first styles */
+:root{
+  --bg:#fff7f0;
+  --accent:#2b8a3e;
+  --muted:#6b6b6b;
+  --card:#fff;
+  --glass: rgba(255,255,255,0.6);
+  --max-width:980px;
+  --radius:12px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;}
+.site-font{font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji';}
+body{
+  margin:0;
+  font-family:var(--site-font, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans');
+  background: linear-gradient(180deg,var(--bg),#fff);
+  color:#222;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 18px}
+.site-header{background:var(--accent);color:#fff;padding:20px 0;text-align:center}
+.site-title{margin:0;font-size:1.4rem}
+.subtitle{margin:4px 0 0;font-size:0.95rem;opacity:0.95}
+.hero{padding:20px 0 8px}
+.hero .lead{background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.5));padding:14px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(0,0,0,0.04)}
+.main-content{padding:12px 0 28px}
+.intro p{line-height:1.5;margin:0 0 12px}
+.intro .telugu{display:block;margin-top:6px;font-style:normal;color:var(--muted)}
+
+/* Carousel */
+.carousel{position:relative;margin:12px 0}
+.carousel input{display:none}
+.slides{position:relative;overflow:hidden;border-radius:var(--radius)}
+.slide{min-height:220px;display:none}
+.slide img{width:100%;height:auto;display:block}
+
+/* show first by default */
+#slide1:checked ~ .slides .slide:nth-child(1),
+#slide2:checked ~ .slides .slide:nth-child(2),
+#slide3:checked ~ .slides .slide:nth-child(3),
+#slide4:checked ~ .slides .slide:nth-child(4){display:block}
+
+.controls{display:flex;justify-content:center;gap:8px;padding:12px 0}
+.dot{width:12px;height:12px;background:#eee;border-radius:50%;display:inline-block;cursor:pointer;transition:all .18s ease}
+#slide1:checked ~ .controls label[for="slide1"],
+#slide2:checked ~ .controls label[for="slide2"],
+#slide3:checked ~ .controls label[for="slide3"],
+#slide4:checked ~ .controls label[for="slide4"]{background:var(--accent)}
+
+/* Highlights */
+.highlights{margin:18px 0}
+.highlights h2{margin:0 0 12px;font-size:1.1rem}
+.grid{display:grid;grid-template-columns:1fr;gap:14px}
+.card{background:var(--card);padding:12px;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+.card h3{margin:0 0 6px;font-size:1rem}
+.card p{margin:4px 0;color:var(--muted);font-size:0.95rem}
+.card .telugu{color:var(--muted);font-size:0.9rem}
+
+/* Contact */
+.contact{margin:18px 0;padding:14px;background:linear-gradient(180deg,#fff,#fffef5);border-radius:10px}
+.contact a{color:var(--accent);text-decoration:none;font-weight:700}
+.contact p{margin:8px 0}
+.cta{display:inline-block;margin-top:8px;background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+
+.site-footer{padding:18px 0 36px;text-align:center;color:var(--muted);font-size:0.95rem}
+
+/* Floating WhatsApp button */
+.whatsapp-fab{position:fixed;right:16px;bottom:16px;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(37,211,102,0.25);text-decoration:none}
+.whatsapp-fab{z-index:9999;transform:translateZ(0);right:18px;bottom:18px;width:64px;height:64px}
+.whatsapp-fab svg{width:32px;height:32px}
+.whatsapp-fab .wh-pulse{position:absolute;width:88px;height:88px;border-radius:50%;background:rgba(37,211,102,0.12);left:50%;top:50%;transform:translate(-50%,-50%);box-shadow:0 8px 24px rgba(37,211,102,0.12);animation:wh-pulse 2.2s infinite}
+
+.wh-inline{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;background:linear-gradient(90deg,#f7fff9,#f0fff4);box-shadow:0 2px 8px rgba(0,0,0,0.05);text-decoration:none}
+.wh-inline .wh-icon{width:20px;height:20px}
+
+@keyframes wh-pulse{0%{transform:translate(-50%,-50%) scale(0.9);opacity:0.95}50%{transform:translate(-50%,-50%) scale(1.08);opacity:0.5}100%{transform:translate(-50%,-50%) scale(0.9);opacity:0.95}}
+
+/* larger screens */
+@media(min-width:600px){
+  .site-title{font-size:1.8rem}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .slide{min-height:320px}
+}
+
+@media(min-width:900px){
+  .container{padding:0 24px}
+  .main-content{padding:28px 0}
+}

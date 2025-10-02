@@ -1,0 +1,9 @@
+[build]
+  base = "."
+  publish = "angular-app/dist/goatfarm-angular"
+  command = "npm run build:web"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
