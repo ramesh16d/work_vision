@@ -87,3 +87,20 @@ GitHub Pages (auto-deploy from this repo)
 3. If you want a custom domain, add it in the Pages settings and create the DNS records your domain registrar requires (usually a CNAME pointing to `<your-username>.github.io`).
 
 Note: GitHub Pages serves static files. The Angular build output created by the workflow includes an `index.html` and required assets; the action will push them to `gh-pages` branch and update the Pages site.
+
+-Using the domain `www.pvlfarms.store`
+
+- I added a `CNAME` file at the repo root containing `www.pvlfarms.store`. When the GitHub Actions workflow runs it will copy this file into the published output so Pages knows to serve the site at that domain.
+
+- After you register `pvlfarms.store` and add the DNS record, create a CNAME DNS record:
+  - Host/Name: www
+  - Type: CNAME
+  - Value/Target: <your-github-username>.github.io
+
+  Also add the A records for the apex (if you want the root `pvlfarms.com` to work):
+  - A 185.199.108.153
+  - A 185.199.109.153
+  - A 185.199.110.153
+  - A 185.199.111.153
+
+Once DNS propagates (minutes to a few hours), GitHub Pages will provision HTTPS automatically.
